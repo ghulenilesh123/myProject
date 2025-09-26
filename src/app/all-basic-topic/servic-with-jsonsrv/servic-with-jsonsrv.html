@@ -1,0 +1,44 @@
+<p>servic-with-jsonsrv works!</p>
+
+
+
+
+<div class="container">
+    <form [formGroup]="myform" (ngSubmit)="postData()">
+        name: <input type="text" name="Name" class="form-control" formControlName="Name">
+        lname: <input type="text" name="Lname" class="form-control" formControlName="Lname">
+        job: <input type="text" name="job" class="form-control" formControlName="job">
+        Email: <input type="email" name="Email" class="form-control" formControlName="Email">
+        gander:male: <input type="radio" name="gander" value="male" formControlName="gander">
+        female: <input type="radio" name="gander" value="female" formControlName="gander"> <br>
+        marks: <input type="text" name="Marks" class="form-control" formControlName="Marks">
+    </form>
+    <button  class="btn btn-success m-3"(click)=" postData()">post</button>
+    <button class="btn btn-info m-3" (click)=" updatedata()">update</button>
+    <button class="btn btn-warning m-3" (click)=" getdata()">getdata</button>
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Lname</th>
+        <th>Job</th>
+        <th>Email</th>
+        <th>gander</th>
+        <th>Marks</th>
+    </tr>
+
+    <tr *ngFor="let obj of listdata ">
+        <td>{{obj.Name}}</td>
+        <td>{{obj.Lname}}</td>
+        <td>{{obj.Job}}</td>
+        <td>{{obj.Email}}</td>
+        <td>{{obj.gander}}</td>
+        <td>{{obj.Marks}}</td>
+        <button class="btn btn-danger" (click)="select(obj)">edit</button>
+        <button class="btn btn-danger" (click)="delete(obj)">delete</button>
+    </tr>
+</table>
+</div>

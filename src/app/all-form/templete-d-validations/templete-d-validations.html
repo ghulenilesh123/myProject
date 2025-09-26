@@ -1,0 +1,144 @@
+<p>templete-d-validations works!</p>
+<div class="container">
+  <form action="" #myForm="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input
+        type="hidden"
+        name="id"
+        class="form-control"
+        [(ngModel)]="formdata.id"
+      />
+    </div>
+    <div>
+      <label for="">Name:</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        [(ngModel)]="formdata.name"
+        required
+        #name="ngModel"
+        [ngClass]="{ 'is-invalid green': name.touched && name.invalid }"
+      />
+      <div class="validation" *ngIf="name.touched && name.invalid">
+        name is reuired
+      </div>
+    </div>
+    <div>
+      <label for="">lname:</label>
+      <input
+        type="text"
+        name="lname"
+        class="form-control"
+        [(ngModel)]="formdata.lname"
+        #lname="ngModel"
+        [ngClass]="{'is-invalid green':lname.touched && lname.invalid }"  
+        required
+      />
+
+      <div class="validation" *ngIf="lname.touched && lname.invalid">
+        lname is required
+      </div>
+    </div>
+    <div>
+      <label for="">Job:</label>
+      <input
+        type="text"
+        name="Job"
+        class="form-control"
+        [(ngModel)]="formdata.Job"
+        required
+        [ngClass]="{'is-invalid green':job.touched && job.invalid }"  
+        #job="ngModel"
+      />
+      <div class="validation" *ngIf="job.touched && job.invalid">
+        job required
+      </div>
+    </div>
+    <div>
+      <label for="">email:</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        [(ngModel)]="formdata.email"
+        #Email="ngModel"
+        pattern="^[^\W_]+\w*(?:[.-]\w*)*[^\W_]+@[^\W_]+(?:[.-]?\w*[^\W_]+)*(?:\.[^\W_]{2,})$"
+        [ngClass]="{'is-invalid green':Email.touched && Email.invalid }"      required />
+      <div class="validation" *ngIf="Email.touched && Email.invalid">
+
+        <div *ngIf="Email.errors?.['pattern']">not valid email</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="">Gander:</label>
+      <label for="">male:</label>
+      <input
+        type="radio"
+        name="Gander"
+        value="male"
+        #Gander='ngModel'
+        [(ngModel)]="formdata.Gander" required
+      />
+
+      <label for="">female:</label>
+      <input
+        type="radio"
+        name="Gander"
+        value="female"
+        [(ngModel)]="formdata.Gander"
+      />
+    </div>
+      <div class='validation' *ngIf=' Gander.invalid && myForm.touched'>required gander</div>
+
+    <div>
+      <label for="">Password:</label>
+      <input
+        type="password"
+        name="Password"
+        class="form-control"
+        [(ngModel)]="formdata.Password"
+        #Password='ngModel'
+        [ngClass]="{'is-invalid green':Password.touched && Password.invalid }" required 
+      />
+      <div class="validation" *ngIf="Password.touched && Password.invalid">
+      Password required
+    </div>
+      
+    </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+    <button type="reset" class="btn btn-danger m-3">reset</button>
+    <button type="button" class="btn btn-warning" (click)="onUpdate(myForm)">
+      Update
+    </button>
+  </form>
+
+  <table class="table table-bordered" *ngIf="listdata.length > 0">
+    <tr>
+      <th>name</th>
+      <th>lname</th>
+      <th>Job</th>
+      <th>email</th>
+      <th>Gander</th>
+      <th>Password</th>
+      <th>actions</th>
+    </tr>
+    <tr *ngFor="let list of listdata">
+      <td>{{ list.name }}</td>
+      <td>{{ list.lname }}</td>
+      <td>{{ list.Job }}</td>
+      <td>{{ list.email }}</td>
+      <td>{{ list.Gander }}</td>
+      <td>{{ list.Password }}</td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="onEdit(list)" #btn >
+          Select
+        </button>
+        <button type="button" class="btn btn-danger" (click)="onDelete(list)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

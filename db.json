@@ -1,0 +1,40 @@
+{
+  "emp": [
+    {
+      "id": 1,
+      "name": "Nilesh",
+      "email": "nilesh@example.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "nillu",
+      "email": "a1@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": 3,
+      "name": "nillu",
+      "email": "a1@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "jsondata": [],
+  "login": [
+    {
+      "id": "9877",
+      "email": "nilesh",
+      "password": "ghule"
+    },
+    {
+      "id": "435d",
+      "email": "ssss",
+      "password": "sss"
+    },
+    {
+      "id": "8ab8",
+      "email": "nilesh",
+      "password": "ghule"
+    }
+  ]
+}

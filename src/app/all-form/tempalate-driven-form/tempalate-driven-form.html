@@ -1,0 +1,65 @@
+<p>tempalate-driven-form works! hello</p>
+<div class="container">
+    <form action="" #myForm="ngForm" (ngSubmit)="onSubmit()">
+        <div>
+
+            <input type="hidden" name="id" class="form-control" [(ngModel)]="formdata.id" />
+        </div>
+        <div>
+            <label for="">Name:</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="formdata.name" />
+        </div>
+        <div>
+            <label for="">lname:</label>
+            <input type="text" name="lname" class="form-control" [(ngModel)]="formdata.lname" />
+        </div>
+        <div>
+            <label for="">Job:</label>
+            <input type="text" name="Job" class="form-control" [(ngModel)]="formdata.Job" />
+        </div>
+        <div>
+            <label for="">email:</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="formdata.email" />
+        </div>
+        <div>
+            <label for="">Gander:</label>
+            <label for="">male:</label>
+            <input type="radio" name="Gander" value="male" [(ngModel)]="formdata.Gander">
+            <label for="">Gander:</label>
+
+            <input type="radio" name="Gander" value="female" [(ngModel)]="formdata.Gander" />
+        </div>
+        <div>
+            <label for="">Password:</label>
+            <input type="password" name="Password" class="form-control" [(ngModel)]="formdata.Password" />
+        </div>
+        <button type="submit" class="btn btn-info"> Submit</button>
+        <button type="reset"class="btn btn-danger m-3"> reset</button>
+        <button type="button" class="btn btn-warning"(click)="onUpdate(myForm)"> Update</button>
+
+    </form>
+
+    <table class="table table-bordered" *ngIf="listdata.length > 0">
+        <tr>
+            <th>name</th>
+            <th>lname</th>
+            <th>Job</th>
+            <th>email</th>
+            <th>Gander</th>
+            <th>Password</th>
+            <th>actions</th>
+        </tr>
+        <tr *ngFor="let list of listdata">
+            <td>{{list.name}}</td>
+            <td>{{list.lname}}</td>
+            <td>{{list.Job}}</td>
+            <td>{{list.email}}</td>
+            <td>{{list.Gander}}</td>
+            <td>{{list.Password}}</td>
+            <td>
+                <button type="button" class="btn btn-success"(click)="onEdit(list)">Select</button>
+                <button type="button" class="btn btn-danger" (click)="onDelete(list)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

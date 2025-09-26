@@ -1,0 +1,125 @@
+<p>servic-with-fake-data works!</p>
+
+
+<!-- <div class="container">
+    <form [formGroup]="myform" (ngSubmit)="postData()">
+         <input type="hidden" name="id" formControlName="id">
+        name: <input type="text" name="name" class="form-control" formControlName="name">
+        lname: <input type="text" name="lname" class="form-control" formControlName="lname">
+        Email: <input type="email" name="email" class="form-control" formControlName="email">
+        job: <input type="text" name="job" class="form-control" formControlName="job">
+        gander: male:<input type="radio" name="gander" value="male"   formControlName="gander">
+                famale: <input type="radio" name="gander" value="famale" formControlName="gander"><br>
+        Password: <input type="password" name="password" class="form-control" formControlName="password">
+        <button class="btn btn-info" type="text"> submit</button>
+        <button class="btn btn-danger" type="reset">Clear</button>
+        <button class="btn btn-info" type="button" (click)="updatedata(myform)"> Update</button>
+    </form>
+</div>
+
+<div class="container">
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>lname</th>
+            <th>Email</th>
+            <th>job</th>
+            <th>gander</th>
+            <th>password</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of postedData">
+            <td>{{obj.id}}</td>
+            <td>{{obj.name}}</td>
+            <td>{{obj.lname}}</td>
+            <td>{{obj.email}}</td>
+            <td>{{obj.job}}</td>
+            <td>{{obj.gander}}</td>
+            <td>{{obj.password}}</td>
+            <td>
+                <button class="btn btn-success m-3" (click)="onEdit(obj)">Edit</button>
+                <button class="btn btn-danger "(click)="delete(obj)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-info" (click)="getData()">get data</button>
+</div>
+
+
+<div class="container" *ngIf="listData.data.length > 0 ">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>email</th>
+                <th>avatar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj of listData.data ">
+                <td>{{obj.first_name}}</td>
+                <td>{{obj.last_name}}</td>
+                <td>{{obj.email}}</td>
+                <th><img [src]="obj.avatar" alt=""></th>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<!-- ==================================== -->
+ <form action="" [formGroup]="myform" (ngSubmit)='postdata()'>
+ <div>
+   <label for="">id:</label>
+   <input type="number" name="id" formControlName="id" placeholder="Enter ID" />
+   <label for="">title:</label>
+<input type="text" name="title" formControlName="title" placeholder="Enter Title" />
+   <label for="">body:</label>
+<input type="text" name="body" formControlName="body" placeholder="Enter Body" /> <br>
+
+   <button class='btn btn-info' type='submit'> Submit</button>
+   <button class='btn btn-info m-3' type='button' (click)=" getData()">getdata</button>
+   <button class="btn btn-danger m-3" type="button" (click)="onDelete()">Delete</button>
+   <button class="btn btn-info m-3" type="button" (click)="onupdate(myform.value)">
+    Update
+  </button>
+ </div>
+</form>
+
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>body</th>
+    </tr>
+
+  <tr *ngFor=" let listt of listData1">
+    <td>{{listt.id}}</td>
+    <td>{{listt.title}}</td>
+    <td>{{listt.body}}</td>
+        <td> <button class="btn btn-success m-3" (click)="onEdit(listt)">Edit</button></td>
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>body</th>
+    <th>url</th>
+  </tr>
+  <tr *ngFor=" let list of listData">
+    <td>{{list.id}}</td>
+    <td>{{list.title}}</td>
+    <td>{{list.body}}</td>
+    <!-- <td>{{list.url}}</td> -->
+  </tr>
+</table>

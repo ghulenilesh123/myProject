@@ -1,0 +1,10 @@
+<p>login works!</p>
+
+<form #login="ngForm" (ngSubmit)="userlogin()">
+
+    <input type="text" name="email" [(ngModel)]="obj.email">
+    <input type="text" name="password" [(ngModel)]="obj.password">
+    <button class="btn btn-info" type="submit" (click)="login2()">submit </button>
+</form>
+
+<button (click)="getdata()">get data</button>
